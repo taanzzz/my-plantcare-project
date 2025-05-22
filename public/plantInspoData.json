@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "The Zen of Bonsai",
+    "desc": "Experience the calming effect of trimming bonsai—where mindfulness meets miniature forests. Let every snip be a step toward serenity.",
+    "image": "https://i.ibb.co/0RtDd4fZ/download-2.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Create a Jungle Vibe",
+    "desc": "Bring tropical forests indoors with Monstera, Palm, and Calatheas. Dense foliage transforms your space into a tranquil rainforest retreat.",
+    "image": "https://i.ibb.co/WvT6yCVN/download-3.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Minimalist Succulent Aesthetic",
+    "desc": "Perfectly geometric, low-maintenance, and endlessly aesthetic—succulents bring calm to cluttered corners with pure simplicity.",
+    "image": "https://i.ibb.co/B5pcxjzK/download-4.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Windowsill Herb Haven",
+    "desc": "Turn your kitchen window into a living shelf of aroma. Fresh basil, mint, and rosemary at your fingertips—practical meets beautiful.",
+    "image": "https://i.ibb.co/tppP7V5x/6vq-Cb-ZWk-HKR88-Xpg-Yjpn-RY.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Trailing Elegance",
+    "desc": "Let pothos, string of hearts, and ivy cascade like green waterfalls. Hanging plants add depth and drama to every indoor setting.",
+    "image": "https://i.ibb.co/TMWS7KFM/Watermark-1200-x-1800-1.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Statement Leaf Life",
+    "desc": "Plants like fiddle leaf figs and bird of paradise are more than greenery—they’re interior design icons that breathe life into your aesthetic.",
+    "image": "https://i.ibb.co/HTDjqLm5/images-1.jpg"
+  }
+]
