@@ -1,9 +1,12 @@
 import React from 'react'
+import PlantSlider from '../../HomeComponents/PlantSlider/PlantSlider'
+
 
 const Home = () => {
   return (
     <div>
-      ami home
+      <PlantSlider></PlantSlider>
+      
     </div>
   )
 }
