@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import { AuthContext } from './../../Component/AuthContext/AuthContext';
+import { Link, useNavigate } from 'react-router';
+import { FaEnvelope, FaLock, FaUser } from 'react-icons/fa';
+
 
 const RegisterForm = () => {
   const { register } = useContext(AuthContext);
@@ -19,87 +21,93 @@ const RegisterForm = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     if (!validatePassword(formData.password)) {
-      toast.error("❌ Invalid password:Must have uppercase,lowercase and be at least 6 characters.");
+      toast.error("❌ Invalid password: Must have uppercase, lowercase, and be at least 6 characters.");
       return;
     }
     try {
-      const userCredential = await register(formData);
+      await register(formData);
       toast.success("🎉 Registration successful!");
       setTimeout(() => navigate('/'), 1500);
     } catch (error) {
-       toast.error(`⚠️ Error: ${error.message}`);
+      toast.error(`⚠️ Error: ${error.message}`);
     }
   };
 
   return (
-    <>
-      <div
-        className="min-h-screen flex items-center justify-center px-4 bg-cover bg-center"
-        style={{
-          backgroundImage: `url('/bg4.png')`,
-          backgroundSize: '100% 100%', // makes image fit without zooming
-    backgroundAttachment: 'fixed', // stays fixed across scroll
-        }}
+    <div
+      className="min-h-screen flex items-center justify-center px-4 bg-cover bg-center"
+      style={{
+        backgroundImage: `url('/bg4.png')`,
+        backgroundSize: '100% 100%',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-md w-full bg-green/30 backdrop-blur-lg p-8 rounded-2xl shadow-2xl space-y-6 border border-green/50"
       >
-        <form
-          onSubmit={handleSubmit}
-          className="max-w-md w-full bg-green/30 backdrop-blur-lg p-8 rounded-2xl shadow-2xl space-y-6 border border-green/50"
+        <h2 className="text-3xl font-bold text-center text-white">
+          <FaUser className="inline-block mr-2 text-blue-200" /> Create an Account
+        </h2>
+
+        <div>
+          <label className="block text-sm font-bold text-gray-700 mb-1">
+            <FaUser className="inline-block mr-1 text-blue-600" /> Full Name
+          </label>
+          <input
+            name="name"
+            onChange={handleChange}
+            placeholder="Enter your name"
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-bold text-gray-700 mb-1">
+            <FaEnvelope className="inline-block mr-1 text-white" /> Email Address
+          </label>
+          <input
+            name="email"
+            onChange={handleChange}
+            placeholder="Enter your email"
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-bold text-gray-700 mb-1">
+            <FaLock className="inline-block mr-1 text-yellow-300" /> Password
+          </label>
+          <input
+            name="password"
+            type="password"
+            onChange={handleChange}
+            placeholder="Enter your password"
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700 transition duration-200"
         >
-          <h2 className="text-3xl font-bold text-center text-green-800">Create an Account</h2>
+          Register
+        </button>
 
-          <div>
-            <label className="block text-sm font-medium text-green-700 mb-1">Full Name</label>
-            <input
-              name="name"
-              onChange={handleChange}
-              placeholder="Enter your name"
-              required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-green-700 mb-1">Email Address</label>
-            <input
-              name="email"
-              onChange={handleChange}
-              placeholder="Enter your email"
-              required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-green-700 mb-1">Password</label>
-            <input
-              name="password"
-              type="password"
-              onChange={handleChange}
-              placeholder="Enter your password"
-              required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700 transition duration-200"
+        <p className="text-center text-sm text-green-700 mt-3">
+          Already have an account?{' '}
+          <Link
+            to="/login"
+            className="text-blue-800 hover:underline cursor-pointer font-semibold"
           >
-            Register
-          </button>
-
-          <p className="text-center text-sm text-green-700 mt-3">
-            Already have an account?{" "}
-            <Link
-              to="/login"
-              className="text-green-600 hover:underline cursor-pointer font-semibold"
-            >
-              Login
-            </Link>
-          </p>
-        </form>
-      </div>
-    </>
+            Login
+          </Link>
+        </p>
+      </form>
+    </div>
   );
 };
 

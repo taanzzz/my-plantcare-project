@@ -10,11 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/merienda": "^5.2.5",
     "@lordicon/element": "^1.11.0",
     "@tailwindcss/vite": "^4.1.7",
     "@tippyjs/react": "^4.2.6",
     "aos": "^2.3.4",
     "axios": "^1.9.0",
+    "date-fns": "^4.1.0",
     "firebase": "^11.7.3",
     "framer-motion": "^12.12.1",
     "lottie-react": "^2.4.1",

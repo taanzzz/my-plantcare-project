@@ -65,16 +65,19 @@ const MyProfile = () => {
       onMouseLeave={handleMouseLeave}
       onClick={handleClick} 
     >
-      <div className="btn btn-ghost btn-circle avatar">
-        <img
-          className="w-10 rounded-full"
-          src={user.photoURL || defaultPhoto}
-          alt="User"
-        />
-      </div>
+      <div className="btn btn-ghost btn-circle avatar relative">
+  <img
+    className="w-10 rounded-full"
+    src={user.photoURL || defaultPhoto}
+    alt="User"
+  />
+  {/* Green active indicator */}
+  <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+</div>
+
 
       <ul
-        className={`absolute right-0 mt-2 bg-base-100 shadow rounded-box w-52 p-2 z-50 flex-col ${
+        className={`absolute items-center  right-0 mt-2 bg-base-100 shadow rounded-box w-30 p-2 z-50 flex-col ${
           open ? 'flex' : 'hidden'
         }`}
       >
@@ -94,7 +97,7 @@ const MyProfile = () => {
       className="btn btn-sm bg-blue-500 text-white hover:bg-blue-600 mt-1"
       onClick={() => setOpen(false)}
     >
-      Profile Settings
+      My Details
     </Link>
   </li>
         <li>

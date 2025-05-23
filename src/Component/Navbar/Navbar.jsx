@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import plantImage from "../../assets/plant.jpg";
+import plantImage from "../../assets/bg.png";
 import { toast } from "react-toastify";
 import { NavLink, useNavigate } from "react-router";
 import { AuthContext } from './../AuthContext/AuthContext';
@@ -48,8 +48,8 @@ const Navbar = () => {
             `m-1 px-2 py-1 rounded transition-colors duration-300
             ${
               isActive
-                ? "bg-green-600 text-white"
-                : "text-gray-800 dark:text-green-300 hover:text-green-600 dark:hover:text-green-400"
+                ? "bg-green-600 font-bold text-white"
+                : " font-bold text-gray-600 dark:text-green-300 hover:text-green-600 dark:hover:text-green-400"
             }`
           }
         >
@@ -64,8 +64,8 @@ const Navbar = () => {
             `m-1 px-2 py-1 rounded transition-colors duration-300
             ${
               isActive
-                ? "bg-green-600 text-white"
-                : "text-gray-800 dark:text-green-300 hover:text-green-600 dark:hover:text-green-400"
+                ? "bg-green-600 font-bold text-white"
+                : " font-bold text-gray-600 dark:text-green-300 hover:text-green-600 dark:hover:text-green-400"
             }`
           }
         >
@@ -82,8 +82,8 @@ const Navbar = () => {
                 `m-1 px-2 py-1 rounded transition-colors duration-300
                 ${
                   isActive
-                    ? "bg-green-600 text-white"
-                    : "text-gray-800 dark:text-green-300 hover:text-green-600 dark:hover:text-green-400"
+                    ? "bg-green-600 font-bold text-white"
+                    : " font-bold text-gray-600 dark:text-green-300 hover:text-green-600 dark:hover:text-green-400"
                 }`
               }
             >
@@ -98,8 +98,8 @@ const Navbar = () => {
                 `m-1 px-2 py-1 rounded transition-colors duration-300
                 ${
                   isActive
-                    ? "bg-green-600 text-white"
-                    : "text-gray-800 dark:text-green-300 hover:text-green-600 dark:hover:text-green-400"
+                    ? "bg-green-600 font-bold text-white"
+                    : " font-bold text-gray-600 dark:text-green-300 hover:text-green-600 dark:hover:text-green-400"
                 }`
               }
             >
@@ -113,12 +113,12 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar bg-green-50 border-green-200 dark:bg-gray-900 dark:border-gray-700 dark:text-green-300 shadow-md px-4 md:px-12">
+      <div className="navbar mt-1 bg-green-50 border-green-200 dark:bg-gray-900 dark:border-gray-700  dark:text-green-300 shadow-md px-4 md:px-12">
         <div className="navbar-start hidden lg:flex">
           <img src={plantImage} alt="Logo" className="w-10 h-10 rounded-full mr-2" />
           <span className="text-xl font-bold select-none">
-            <span className="text-green-700 dark:text-green-400">Plant</span>
-            <span className="text-gray-800 dark:text-green-300">Care</span>
+            <span className="text-green-700 font-bold dark:text-green-400">Plant</span>
+            <span className="text-gray-800 font-bold  dark:text-green-300">Care</span>
           </span>
         </div>
 
@@ -132,13 +132,12 @@ const Navbar = () => {
               <FaBars className="text-2xl" />
             </button>
             <ul
-              className={`absolute top-12 z-50 w-52 p-2 rounded-lg shadow-lg transition-all duration-300 transform bg-white dark:bg-gray-800 border border-green-200 dark:border-gray-700
-              ${
-                dropdownOpen ? "opacity-100 scale-100 visible" : "opacity-0 scale-95 invisible"
-              }`}
+            className={`absolute top-12 z-50 w-52 p-2 rounded-lg shadow-lg transition-all duration-300 transform bg-white dark:bg-gray-800 border border-green-200 dark:border-gray-700
+             ${dropdownOpen ? "opacity-100 scale-100 visible" : "opacity-0 scale-95 invisible"} space-y-2`}
             >
-              {navLinks}
+            {navLinks}
             </ul>
+
           </div>
         </div>
 
@@ -154,13 +153,13 @@ const Navbar = () => {
             <>
               <NavLink
                 to="/login"
-                className="btn btn-sm bg-green-700 hover:bg-green-800 text-white"
+                className="btn btn-sm bg-green-700 hover:bg-green-800 font-bold text-white"
               >
                 Login
               </NavLink>
               <NavLink
                 to="/register"
-                className="btn btn-sm bg-green-600 hover:bg-green-700 text-white"
+                className="btn btn-sm bg-green-600 hover:bg-green-700 font-bold text-white"
               >
                 Register
               </NavLink>
