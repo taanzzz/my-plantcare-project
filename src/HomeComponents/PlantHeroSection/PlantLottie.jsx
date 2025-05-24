@@ -58,9 +58,9 @@ const PlantLottieTips = () => {
   }, []);
 
   return (
-    <section className="py-16 px-6 md:px-20 bg-gradient-to-br from-green-50 to-lime-100 dark:from-green-900 dark:to-green-800">
+    <section className="py-16 px-6 md:px-20 ">
       <h2
-        className="text-4xl font-bold text-center text-green-800 dark:text-green-100 mb-12"
+        className="text-4xl font-bold text-center mb-12"
         data-aos="fade-up"
       >
         🌿Plant Care Tips

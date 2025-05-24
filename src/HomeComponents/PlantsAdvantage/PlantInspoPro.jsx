@@ -31,12 +31,12 @@ const PlantInspoPro = () => {
   if (error) return <p className="text-center text-red-600 py-10">{error}</p>;
 
   return (
-    <section className="relative w-full bg-gradient-to-br from-emerald-50 via-green-100 to-white py-24 px-6 md:px-20 overflow-hidden">
+    <section className="relative w-full  py-24 px-6 md:px-20 overflow-hidden">
       <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-6xl font-extrabold text-emerald-700 drop-shadow-sm">
+        <h2 className="text-4xl md:text-6xl font-extrabold drop-shadow-sm">
           🌱 Green Living Inspiration
         </h2>
-        <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-1000 mt-4 max-w-2xl mx-auto">
           Discover how houseplants enhance wellness, focus, and beauty in your life.
         </p>
       </div>
@@ -71,7 +71,6 @@ const PlantInspoPro = () => {
         ))}
       </div>
 
-      {/* Background Animated Blobs */}
       <div className="absolute w-72 h-72 bg-emerald-100 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse top-[-80px] left-[-80px]"></div>
       <div className="absolute w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse bottom-[-80px] right-[-80px]"></div>
     </section>

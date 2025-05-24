@@ -46,7 +46,7 @@ const RegisterForm = () => {
         onSubmit={handleSubmit}
         className="max-w-md w-full bg-green/30 backdrop-blur-lg p-8 rounded-2xl shadow-2xl space-y-6 border border-green/50"
       >
-        <h2 className="text-3xl font-bold text-center text-white">
+        <h2 className="text-2xl font-bold text-center text-white">
           <FaUser className="inline-block mr-2 text-blue-200" /> Create an Account
         </h2>
 
@@ -97,7 +97,7 @@ const RegisterForm = () => {
           Register
         </button>
 
-        <p className="text-center text-sm text-green-700 mt-3">
+        <p className="text-center text-sm text-black  mt-3">
           Already have an account?{' '}
           <Link
             to="/login"

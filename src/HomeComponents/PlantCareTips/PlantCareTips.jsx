@@ -65,14 +65,14 @@ const PlantCareTips = () => {
   }, []);
 
   return (
-    <div className="py-14 px-4 md:px-10 lg:px-24 bg-gradient-to-b from-green-50 via-green-100 to-green-200">
+    <div className="py-14 px-4 md:px-10 lg:px-24">
       <motion.h2
-        className="text-3xl md:text-4xl font-bold text-center text-green-900 mb-12"
+        className="text-3xl md:text-4xl font-bold text-center  mb-12"
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        🌱 Essential Plant Care Tips
+        🌱 Plant Care Guide 
       </motion.h2>
 
       <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
