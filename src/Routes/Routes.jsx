@@ -12,6 +12,7 @@ import MyProfile from './../Page/MyProfile/MyProfile';
 import UserProfile from './../Page/UserProfile/UserProfile';
 import UpdatePlants from './../Planting/UpdatePlants';
 import ErrorPage from '../Page/ErrorPage/ErrorPage';
+import UpdateProfile from '../Page/UpdateProfile/UpdateProfile';
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
         {
           path: "user-profile",
           element: <UserProfile />,
+        },
+        {
+          path: "update-profile",
+          element: <UpdateProfile />,
         },
         
   ],
