@@ -48,7 +48,7 @@ const AllPlantDetails = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {sortedPlants.slice(0, 6).map((plant, index) => (
+        {sortedPlants.slice(0, 18).map((plant, index) => (
           <div
             key={plant._id}
             data-aos="fade-up"
