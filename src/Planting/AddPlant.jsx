@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from './../Component/AuthContext/AuthContext';
+import { CalendarDays, Leaf, PlusCircle } from 'lucide-react';
 
 
 const AddPlant = () => {
@@ -58,50 +59,53 @@ const AddPlant = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto bg-white p-6 mt-8 shadow-md rounded-xl">
-      <h2 className="text-2xl font-bold text-green-700 mb-6">Add a New Plant 🌱</h2>
-      <form onSubmit={handleAddPlant} className="space-y-4">
-        <input type="text" name="image" placeholder="Image URL" className="input input-bordered w-full" required />
-        <input type="text" name="name" placeholder="Plant Name" className="input input-bordered w-full" required />
+    <div className="max-w-4xl mx-auto p-6 mt-8 rounded-2xl shadow-xl bg-base-100 dark:bg-neutral text-base-content transition-all duration-300">
+      <h2 className="text-3xl font-bold text-green-600 dark:text-green-400 mb-8 flex items-center gap-3">
+        <Leaf className="text-green-500 fill-green-300 dark:text-green-300" /> Add a New Plant 🌱
+      </h2>
+      <form onSubmit={handleAddPlant} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <input type="text" name="image" placeholder="Image URL" className="input input-bordered w-full" required />
+          <input type="text" name="name" placeholder="Plant Name" className="input input-bordered w-full" required />
 
-        <select name="category" className="select select-bordered w-full" required>
-          <option value="">Select Category</option>
-          <option value="Succulent">Succulent</option>
-          <option value="Fern">Fern</option>
-          <option value="Flowering">Flowering</option>
-        </select>
+          <select name="category" className="select select-bordered w-full" required>
+            <option value="">Select Category</option>
+            <option value="Succulent">Succulent</option>
+            <option value="Fern">Fern</option>
+            <option value="Flowering">Flowering</option>
+          </select>
 
-        <textarea name="description" placeholder="Description" className="textarea textarea-bordered w-full" required />
+          <select name="careLevel" className="select select-bordered w-full" required>
+            <option value="">Select Care Level</option>
+            <option value="Easy">Easy</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Difficult">Difficult</option>
+          </select>
 
-        <select name="careLevel" className="select select-bordered w-full" required>
-          <option value="">Select Care Level</option>
-          <option value="Easy">Easy</option>
-          <option value="Moderate">Moderate</option>
-          <option value="Difficult">Difficult</option>
-        </select>
+          <input type="text" name="wateringFrequency" placeholder="Watering Frequency (e.g. every 3 days)" className="input input-bordered w-full" required />
+          <input type="text" name="healthStatus" placeholder="Health Status" className="input input-bordered w-full" required />
+        </div>
 
-        <input type="text" name="wateringFrequency" placeholder="Watering Frequency (e.g. every 3 days)" className="input input-bordered w-full" required />
+        <textarea name="description" placeholder="Description" className="textarea textarea-bordered w-full h-24" required />
 
-        <div className="flex gap-4">
-          <div className="w-full">
-            <label className="label">Last Watered Date</label>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label className="label"><CalendarDays className="mr-2 text-gray-400 dark:text-white" /> Last Watered Date</label>
             <input type="date" name="lastWateredDate" className="input input-bordered w-full" required />
           </div>
-          <div className="w-full">
-            <label className="label">Next Watering Date</label>
+          <div>
+            <label className="label"><CalendarDays className="mr-2 text-gray-400 dark:text-white" /> Next Watering Date</label>
             <input type="date" name="nextWateringDate" className="input input-bordered w-full" required />
           </div>
         </div>
 
-        <input type="text" name="healthStatus" placeholder="Health Status" className="input input-bordered w-full" required />
-
-        <div className="flex gap-4">
-          <input type="text" value={user?.email || ''} readOnly className="input input-bordered w-full bg-gray-100" />
-          <input type="text" value={user?.displayName || ''} readOnly className="input input-bordered w-full bg-gray-100" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <input type="text" value={user?.email || ''} readOnly className="input input-bordered w-full " />
+          <input type="text" value={user?.displayName || ''} readOnly className="input input-bordered w-full " />
         </div>
 
-        <button type="submit" disabled={loading} className="btn btn-success w-full mt-4">
-          {loading ? 'Submitting...' : 'Add Plant'}
+        <button type="submit" disabled={loading} className="btn btn-success w-full text-lg tracking-wide shadow-md">
+          {loading ? 'Submitting...' : <span className="flex items-center justify-center gap-2"><PlusCircle className='text-white' /> Add Plant</span>}
         </button>
       </form>
     </div>

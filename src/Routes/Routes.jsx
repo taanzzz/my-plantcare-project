@@ -11,11 +11,13 @@ import Root from './../Root/Root';
 import MyProfile from './../Page/MyProfile/MyProfile';
 import UserProfile from './../Page/UserProfile/UserProfile';
 import UpdatePlants from './../Planting/UpdatePlants';
+import ErrorPage from '../Page/ErrorPage/ErrorPage';
 
 export const router = createBrowserRouter([
   {
   path: "/",
   element: <Root />,
+  errorElement: <ErrorPage />,
   children: [
     {
       index: true,
@@ -60,5 +62,9 @@ export const router = createBrowserRouter([
   {
     path: "register",
     element: <RegisterForm />,
+  },
+  {
+    path: '*',
+    element: <ErrorPage />, 
   },
 ]);

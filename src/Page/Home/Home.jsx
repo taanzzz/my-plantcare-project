@@ -4,6 +4,7 @@ import PlantCareTips from '../../HomeComponents/PlantCareTips/PlantCareTips'
 import PlantLottie from '../../HomeComponents/PlantHeroSection/PlantLottie'
 import PlantInspoPro from '../../HomeComponents/PlantsAdvantage/PlantInspoPro'
 import AllPlantDetails from '../../HomeComponents/PlantDecoration/AllPlantDetails'
+import WhyPlantsMatter from '../../HomeComponents/WhyPlantMatter/WhyPlantsMatter'
 
 
 
@@ -15,6 +16,7 @@ const Home = () => {
       <PlantCareTips></PlantCareTips>
      <PlantLottie></PlantLottie>
      <PlantInspoPro></PlantInspoPro>
+     <WhyPlantsMatter></WhyPlantsMatter>
       
     </div>
   )

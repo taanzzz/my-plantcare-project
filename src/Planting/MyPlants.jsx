@@ -2,12 +2,13 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from './../Component/AuthContext/AuthContext';
 import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
+import { Leaf, Pencil, Trash2 } from 'lucide-react';
 
 
 const MyPlants = () => {
   const { user } = useContext(AuthContext);
   const [myPlants, setMyPlants] = useState([]);
-  const navigate = useNavigate(); // ✅ navigation hook
+  const navigate = useNavigate(); 
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
@@ -64,41 +65,54 @@ const baseUrl = import.meta.env.VITE_API_URL;
     });
   };
 
-  return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">My Plants</h2>
+   return (
+    <div className="p-4 md:p-8 mt-10 max-w-6xl mx-2 sm:mx-auto px-2 sm:px-6 dark:bg-zinc-900 bg-white rounded-xl shadow-md">
+      <div className="flex items-center gap-2 mb-6">
+        <Leaf className="text-green-600 dark:text-green-400 fill-green-400" />
+        <h2 className="text-2xl font-bold text-zinc-800 dark:text-white">My Plants</h2>
+      </div>
+
       <div className="overflow-x-auto">
-        <table className="table-auto w-full border-collapse border">
+        <table className="min-w-full table-auto border-collapse">
           <thead>
-            <tr className="bg-green-100">
-              <th className="border p-2">Name</th>
-              <th className="border p-2">Actions</th>
+            <tr className="bg-green-100 dark:bg-green-900 text-zinc-800 dark:text-zinc-200 border-b border-zinc-300 dark:border-zinc-700">
+              <th className="p-3 text-left">Name</th>
+              <th className="p-3 text-left">Actions</th>
             </tr>
           </thead>
+
           <tbody>
             {myPlants.length > 0 ? (
               myPlants.map((plant) => (
-                <tr key={plant._id}>
-                  <td className="border p-2">{plant.name}</td>
-                  <td className="border p-2">
-                    <button
-                      onClick={() => handleUpdate(plant._id)}
-                      className="mr-4 text-blue-600 underline"
-                    >
-                      Update
-                    </button>
-                    <button
-                      onClick={() => handleDelete(plant._id)}
-                      className="text-red-600"
-                    >
-                      Delete
-                    </button>
+                <tr
+                  key={plant._id}
+                  className="hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors border-b border-zinc-200 dark:border-zinc-700"
+                >
+                  <td className="p-3 text-zinc-700 dark:text-zinc-300">{plant.name}</td>
+                  <td className="p-3">
+                    <div className="flex  gap-4">
+                      <button
+                        onClick={() => handleUpdate(plant._id)}
+                        className="flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:underline"
+                      >
+                        <Pencil className='text-blue-600' size={18} /> Update
+                      </button>
+                      <button
+                        onClick={() => handleDelete(plant._id)}
+                        className="flex items-center gap-1 text-red-600 dark:text-red-400 hover:underline"
+                      >
+                        <Trash2 size={18} /> Delete
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="2" className="text-center py-4 text-gray-500">
+                <td
+                  colSpan="2"
+                  className="text-center py-6 text-zinc-500 dark:text-zinc-400"
+                >
                   You haven’t added any plants yet.
                 </td>
               </tr>
