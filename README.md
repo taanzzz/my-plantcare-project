@@ -65,12 +65,13 @@ Create a `.env.local` file in the root of the client and add:
 VITE_API_URL=http://localhost:5000
 
 # Firebase Configuration
-VITE_apiKey=AIzaSyDpB7UJMqEoUGKOefAgD0uw7moyktnfYsk
-VITE_authDomain=my-assignment-project-2a864.firebaseapp.com
-VITE_projectId=my-assignment-project-2a864
-VITE_storageBucket=my-assignment-project-2a864.appspot.com
-VITE_messagingSenderId=39798927892
-VITE_appId=1:39798927892:web:5f24c3803edcebbeab6d01
+VITE_apiKey=your_firebase_api_key
+VITE_authDomain=your_project_auth_domain
+VITE_projectId=your_project_id
+VITE_storageBucket=your_storage_bucket
+VITE_messagingSenderId=your_messaging_sender_id
+VITE_appId=your_app_id
+
 ```
 
 ---
