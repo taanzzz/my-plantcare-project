@@ -13,6 +13,7 @@ import UserProfile from './../Page/UserProfile/UserProfile';
 import UpdatePlants from './../Planting/UpdatePlants';
 import ErrorPage from '../Page/ErrorPage/ErrorPage';
 import UpdateProfile from '../Page/UpdateProfile/UpdateProfile';
+import ModelViewer from '../HomeComponents/ModelViewer';
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +57,11 @@ export const router = createBrowserRouter([
           path: "update-profile",
           element: <UpdateProfile />,
         },
+        {
+        path: "3d-model", // আপনি যে পাথটি চান সেটি দিন, যেমন "/view-model"
+        // public ফোল্ডারে রাখা model.fbx ফাইলের পাথ দিন
+        element: <ModelViewer modelPath="/car.fbx" initialCameraPosition={[3, 2, 4]} />,
+      },
         
   ],
 },

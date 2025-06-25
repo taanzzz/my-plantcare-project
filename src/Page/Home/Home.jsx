@@ -8,6 +8,7 @@ import WhyPlantsMatter from '../../HomeComponents/WhyPlantMatter/WhyPlantsMatter
 
 
 
+
 const Home = () => {
   return (
     <div>
@@ -17,7 +18,6 @@ const Home = () => {
      <PlantLottie></PlantLottie>
      <PlantInspoPro></PlantInspoPro>
      <WhyPlantsMatter></WhyPlantsMatter>
-      
     </div>
   )
 }

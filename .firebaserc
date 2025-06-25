@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "my-assignment-project-2a864"
-  }
+    "login-auth": "my-assignment-auth-9da01",
+    "project": "my-login-auth-67067"
+  },
+  "targets": {},
+  "etags": {}
 }

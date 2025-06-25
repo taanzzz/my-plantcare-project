@@ -106,6 +106,22 @@ const Navbar = () => {
               My Plants
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/3d-model"
+              onClick={() => setDropdownOpen(false)}
+              className={({ isActive }) =>
+                `m-1 px-2 py-1 rounded transition-colors duration-300
+                ${
+                  isActive
+                    ? "bg-green-600 font-bold text-white"
+                    : " font-bold text-gray-600 dark:text-green-300 hover:text-green-600 dark:hover:text-green-400"
+                }`
+              }
+            >
+              3D model
+            </NavLink>
+          </li>
         </>
       )}
     </>

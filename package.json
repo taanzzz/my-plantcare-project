@@ -12,6 +12,8 @@
   "dependencies": {
     "@fontsource/merienda": "^5.2.5",
     "@lordicon/element": "^1.11.0",
+    "@react-three/drei": "^10.3.0",
+    "@react-three/fiber": "^9.1.2",
     "@tailwindcss/vite": "^4.1.7",
     "@tippyjs/react": "^4.2.6",
     "aos": "^2.3.4",
@@ -33,6 +35,7 @@
     "sweetalert2": "^11.6.13",
     "swiper": "^11.2.7",
     "tailwindcss": "^4.1.7",
+    "three": "^0.177.0",
     "tippy.js": "^6.3.7"
   },
   "devDependencies": {
