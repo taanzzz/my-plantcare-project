@@ -5,7 +5,7 @@
 ![Plant Care Tracker Preview](https://i.ibb.co/DfGxwbmw/Screenshot-2025-06-25-174854.png)
 
 
-**Live Site:** [https://my-assignment-auth-9da01.web.app/](https://my-assignment-auth-9da01.web.app/)
+**Live Site:** [https://my-login-auth-67067.web.app/](https://my-login-auth-67067.web.app/)
 
 **Plant Care Tracker** is a full-stack, mobile-responsive web application designed to help plant enthusiasts track and manage the care of their indoor and outdoor plants. With personalized dashboards, secure authentication, and a beautiful plant-themed UI, this app acts as a digital assistant for plant lovers.
 
