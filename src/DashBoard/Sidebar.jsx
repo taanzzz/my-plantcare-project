@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { NavLink, useNavigate } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import { LayoutDashboard, Layers, PlusCircle, User, LogOut } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
@@ -18,6 +18,7 @@ const Sidebar = ({ onLinkClick }) => {
       console.error(err);
       toast.error('⚠️ Failed to logout!');
     }
+
     if (onLinkClick) onLinkClick();
   };
 
@@ -35,22 +36,20 @@ const Sidebar = ({ onLinkClick }) => {
 
   return (
     <motion.nav
-  initial="hidden"
-  animate="visible"
-  variants={{ visible: { transition: { staggerChildren: 0.07 } } }}
-  className="fixed top-[64px] left-0 w-64 h-[calc(100vh-64px)] z-40 overflow-y-auto p-4 flex flex-col justify-between bg-white dark:bg-zinc-900 shadow-xl border-r border-gray-200 dark:border-zinc-800"
->
-
-      <ul className="space-y-2"> 
+      initial="hidden"
+      animate="visible"
+      variants={{ visible: { transition: { staggerChildren: 0.07 } } }}
+      className="p-6 h-full flex flex-col justify-between bg-white dark:bg-zinc-900 shadow-xl border-r border-gray-200 dark:border-zinc-800"
+    >
+      <ul className="space-y-3">
         {navLinks.map((link) => (
           <motion.li key={link.to} variants={linkVariants}>
             <NavLink
               to={link.to}
-              end={link.end} 
+              end={link.end}
               onClick={onLinkClick}
-              
               className={({ isActive }) =>
-                `flex items-center gap-3 p-3.5 rounded-xl font-semibold text-lg transition-colors duration-300 transform hover:bg-green-50 dark:hover:bg-zinc-800 ${
+                `flex items-center gap-4 p-4 rounded-xl font-semibold text-lg transition-colors duration-300 transform hover:bg-green-50 dark:hover:bg-zinc-800 ${
                   isActive
                     ? 'bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300'
                     : 'text-gray-600 dark:text-gray-400'
@@ -63,15 +62,17 @@ const Sidebar = ({ onLinkClick }) => {
           </motion.li>
         ))}
       </ul>
-      
+
+      {/* --- Logout Button --- */}
       <motion.div variants={linkVariants}>
-        <button
+        <Link
+          to="/"
           onClick={handleLogout}
           className="flex items-center gap-4 w-full p-4 rounded-xl font-semibold text-lg text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/50 hover:bg-red-100 dark:hover:bg-red-900 transition-colors duration-300"
         >
           <LogOut className="w-6 h-6" />
           <span>Log Out</span>
-        </button>
+        </Link>
       </motion.div>
     </motion.nav>
   );
