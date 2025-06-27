@@ -6,8 +6,6 @@ import Aos from 'aos';
 import { motion } from 'framer-motion';
 import Tippy from '@tippyjs/react';
 
-
-
 const tips = [
   {
     id: 1,
@@ -65,50 +63,52 @@ const PlantCareTips = () => {
   }, []);
 
   return (
-    <div className="py-14 px-4 md:px-10 lg:px-24">
-      <motion.h2
-        className="text-3xl md:text-4xl font-bold text-center  mb-12"
-        initial={{ opacity: 0, y: -40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        🌱 Plant Care Guide 
-      </motion.h2>
+    <div className="py-14 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-32">
+      <div className="max-w-7xl mx-auto">
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold text-center mb-12"
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          🌱 Plant Care Guide
+        </motion.h2>
 
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        {tips.map((tip) => (
-          <motion.div
-            key={tip.id}
-            data-aos={tip.aos}
-            className="flex items-center gap-5 bg-white rounded-xl p-6 shadow-xl border-l-4 border-green-600 hover:scale-105 hover:shadow-green-300 transition duration-300"
-            whileHover={{ scale: 1.03 }}
-          >
-            <Tippy
-              content={
-                <div className="bg-green-100 border border-green-400 rounded-lg p-2 text-green-800 shadow-md max-w-[220px] text-sm font-medium">
-                  {tip.tip}
-                </div>
-              }
-              placement="right"
-              theme="light-border"
-              delay={[100, 0]}
-              interactive={true}
-              trigger="mouseenter focus"
-              onShow={(instance) => {
-                const isTouch = window.matchMedia('(hover: none)').matches;
-                if (isTouch) instance.setProps({ trigger: 'click' });
-              }}
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {tips.map((tip) => (
+            <motion.div
+              key={tip.id}
+              data-aos={tip.aos}
+              className="flex items-center gap-5 bg-white rounded-xl p-6 shadow-xl border-l-4 border-green-600 hover:scale-105 hover:shadow-green-300 transition duration-300"
+              whileHover={{ scale: 1.03 }}
             >
-              <div className="cursor-help transition-transform duration-300 hover:scale-110">
-                {tip.icon}
+              <Tippy
+                content={
+                  <div className="bg-zinc-100 dark:bg-zinc-700 border border-zinc-300 dark:border-zinc-600 rounded-lg p-2 text-zinc-800 dark:text-zinc-200 shadow-md max-w-[220px] text-sm font-medium">
+                    {tip.tip}
+                  </div>
+                }
+                placement="right"
+                theme="light-border"
+                delay={[100, 0]}
+                interactive={true}
+                trigger="mouseenter focus"
+                onShow={(instance) => {
+                  const isTouch = window.matchMedia('(hover: none)').matches;
+                  if (isTouch) instance.setProps({ trigger: 'click' });
+                }}
+              >
+                <div className="cursor-help transition-transform duration-300 hover:scale-110">
+                  {tip.icon}
+                </div>
+              </Tippy>
+              <div>
+                <h4 className="text-lg font-semibold text-zinc-800 dark:text-zinc-100">{tip.title}</h4>
+                <p className="text-sm text-green-700">{tip.description}</p>
               </div>
-            </Tippy>
-            <div>
-              <h4 className="text-xl font-semibold text-green-800">{tip.title}</h4>
-              <p className="text-sm text-green-700">{tip.description}</p>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );

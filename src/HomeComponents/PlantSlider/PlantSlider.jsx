@@ -42,7 +42,7 @@ const PlantSlider = () => {
           {slides.map(slide => (
             <SwiperSlide
               key={slide.id}
-              className="max-w-6xl mx-auto w-72 md:w-96 lg:w-[500px] xl:w-[550px] rounded-3xl shadow-xl overflow-hidden border-2 border-white dark:border-gray-500 bg-white dark:bg-gray-800"
+              className="max-w-6xl mx-auto w-72 md:w-96 lg:w-[500px] mb-3 xl:w-[550px] rounded-3xl shadow-xl overflow-hidden border-2 border-white dark:border-gray-500 bg-white dark:bg-gray-800"
             >
               <img
                 src={slide.image}
