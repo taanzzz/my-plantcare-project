@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from './../../Component/AuthContext/AuthContext';
-import { useNavigate } from 'react-router'; 
+import { useNavigate } from 'react-router';
 import { Pencil, User, Mail, AtSign, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { SyncLoader } from 'react-spinners'; 
@@ -43,10 +43,10 @@ const UserProfile = () => {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-4xl w-full mx-auto p-8 md:p-12 bg-white dark:bg-zinc-900 shadow-3xl rounded-3xl border border-gray-200/60 dark:border-zinc-800/60 transition-all duration-300 text-center"
+        className="max-w-4xl w-full mx-auto p-6 md:p-12 bg-white dark:bg-zinc-900 shadow-3xl rounded-3xl border border-gray-200/60 dark:border-zinc-800/60 transition-all duration-300 text-center"
       >
-        <div className="flex flex-col items-center gap-6 md:gap-8">
-          <div className="relative w-40 h-40 rounded-full border-4 border-green-500 dark:border-green-400 shadow-2xl overflow-hidden group">
+        <div className="flex flex-col items-center gap-4 md:gap-8"> 
+          <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-green-500 dark:border-green-400 shadow-2xl overflow-hidden group">
             <img
               src={user.photoURL || 'https://i.ibb.co/FbDdMYbZ/vecteezy-blue-profile-icon-36885313.png'}
               alt="User Avatar"
@@ -54,18 +54,19 @@ const UserProfile = () => {
             />
           </div>
           
-          <div className="space-y-4 text-gray-800 dark:text-gray-200 w-full">
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-gray-50 flex items-center justify-center gap-4">
-                <User className="w-10 h-10 text-green-600" />
+          <div className="space-y-3 text-gray-800 dark:text-gray-200 w-full">
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-gray-50 flex items-center justify-center gap-4">
+                <User className="w-8 h-8 md:w-10 md:h-10 text-green-600" />
                 {user.displayName || 'Unnamed User'}
             </h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
-              <p className="flex items-center gap-3 bg-gray-100 dark:bg-zinc-800 p-4 rounded-xl shadow-inner text-base">
+              
+              <p className="flex items-center gap-3 bg-gray-100 dark:bg-zinc-800 p-4 rounded-xl shadow-inner text-base truncate">
                 <Mail className="w-6 h-6 text-blue-500" />
                 <span className="font-semibold text-gray-600 dark:text-gray-400">Email:</span> {user.email}
               </p>
-              <p className="flex items-center gap-3 bg-gray-100 dark:bg-zinc-800 p-4 rounded-xl shadow-inner text-base">
+              <p className="flex items-center gap-3 bg-gray-100 dark:bg-zinc-800 p-4 rounded-xl shadow-inner text-base truncate">
                 <AtSign className="w-6 h-6 text-purple-500" />
                 <span className="font-semibold text-gray-600 dark:text-gray-400">UID:</span> {user.uid}
               </p>
