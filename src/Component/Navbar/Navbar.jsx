@@ -6,10 +6,8 @@ import { toast } from "react-toastify";
 import { motion, AnimatePresence } from "framer-motion";
 import ToggleTheme from './../ToggleTheme/ToggleTheme';
 import MyProfile from './../../Page/MyProfile/MyProfile'; 
-
-
 import { AiFillHome, AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import { MdOutlineBookmarkAdded, MdEmail, MdLogin, MdAddBox, MdOutlineEco } from "react-icons/md";
+import {  MdEmail,  MdOutlineEco } from "react-icons/md";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { FaChevronDown, FaUserPlus, FaSeedling } from "react-icons/fa";
 import { RiLoginBoxLine } from "react-icons/ri";
@@ -90,8 +88,7 @@ const Navbar = () => {
       <NavLinkItem to="/all-plants" icon={FaSeedling}>All Plants</NavLinkItem>
       {user && (
         <>
-          <NavLinkItem to="/add-plant" icon={MdAddBox}>Add Plant</NavLinkItem>
-          <NavLinkItem to="/my-plants" icon={MdOutlineEco}>My Plants</NavLinkItem>
+          <NavLinkItem to="/dashboard" icon={MdOutlineEco}>Dashboard</NavLinkItem>
         </>
       )}
     </nav>
