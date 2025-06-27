@@ -12,11 +12,9 @@ const MyProfile = () => {
   const dropdownRef = useRef(null); 
 
   useEffect(() => {
-    
     const mq = window.matchMedia('(hover: hover)');
     setCanHover(mq.matches);
 
-    
     const handler = (e) => setCanHover(e.matches);
     mq.addEventListener('change', handler);
 
@@ -24,7 +22,6 @@ const MyProfile = () => {
   }, []);
 
   useEffect(() => {
-   
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setOpen(false);
@@ -83,7 +80,7 @@ const MyProfile = () => {
       onClick={handleClick}
       ref={dropdownRef}
     >
-     
+      
       <motion.div
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -122,7 +119,8 @@ const MyProfile = () => {
             </li>
             <li>
               <Link
-                to="/user-profile"
+                
+                to="/dashboard/profile"
                 className="w-full text-center inline-block bg-green-500 text-white font-semibold py-2 rounded-lg shadow-md hover:bg-green-600 transition-colors text-sm"
                 onClick={() => setOpen(false)}
               >

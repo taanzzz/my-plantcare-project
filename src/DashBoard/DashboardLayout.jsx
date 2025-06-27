@@ -61,7 +61,7 @@ const DashboardLayout = () => {
         </AnimatePresence>
         
         
-        <div className="lg:hidden fixed top-16  z-[1000]">
+        <div className="lg:hidden  top-16  z-[1000]">
           <button
             onClick={toggleSidebar}
             className="p-2 rounded-lg bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-gray-300 shadow-md transition-colors"
