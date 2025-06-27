@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import { AuthContext } from './../../Component/AuthContext/AuthContext';
-import { Link } from 'react-router';
-
+import { Link } from 'react-router'; 
+import { motion, AnimatePresence } from 'framer-motion';
 
 const MyProfile = () => {
   const { user, logout } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
   const timeoutRef = useRef(null);
   const [canHover, setCanHover] = useState(false);
+  const dropdownRef = useRef(null); 
 
   useEffect(() => {
     
@@ -20,6 +21,17 @@ const MyProfile = () => {
     mq.addEventListener('change', handler);
 
     return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  useEffect(() => {
+   
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   if (!user) return null;
@@ -57,59 +69,79 @@ const MyProfile = () => {
       setOpen((prev) => !prev);
     }
   };
+  
+  const dropdownVariants = {
+    hidden: { opacity: 0, y: -10, scale: 0.95, transition: { duration: 0.2, ease: "easeOut" } },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.2, ease: "easeIn" } },
+  };
 
   return (
-  <div
-    className="relative"
-    onMouseEnter={handleMouseEnter}
-    onMouseLeave={handleMouseLeave}
-    onClick={handleClick}
-  >
-    <div className="btn btn-ghost btn-circle avatar relative ring-1 ring-zinc-300 dark:ring-zinc-700 hover:ring-green-500 transition">
-      <img
-        className="w-10 h-10 object-cover rounded-full"
-        src={user.photoURL || defaultPhoto}
-        alt="User"
-      />
-      <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white dark:border-zinc-900 rounded-full"></span>
-    </div>
-
-    <ul
-      className={`absolute right-0 mt-2 bg-base-100 dark:bg-zinc-800 shadow-lg rounded-xl w-36 z-50 p-2 space-y-2 transition-all duration-200 ${
-        open ? 'flex flex-col' : 'hidden'
-      }`}
+    <div
+      className="relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
+      ref={dropdownRef}
     >
-      <li>
-        <span
-          onClick={() =>
-            toast.info(`👤 Logged in as ${user.displayName || 'Anonymous'}`)
-          }
-          className="cursor-pointer text-sm  font-medium hover:text-green-600"
-        >
-          {user.displayName || 'Anonymous'}
-        </span>
-      </li>
-      <li>
-        <Link
-          to="/user-profile"
-          className="btn btn-sm w-full bg-blue-500 text-white hover:bg-blue-600 transition"
-          onClick={() => setOpen(false)}
-        >
-          My Details
-        </Link>
-      </li>
-      <li>
-        <button
-          onClick={handleLogout}
-          className="btn btn-sm w-full bg-red-600 text-white hover:bg-red-700 transition"
-        >
-          Log Out
-        </button>
-      </li>
-    </ul>
-  </div>
-);
+     
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="cursor-pointer relative w-11 h-11 rounded-full border-2 border-transparent ring-2 ring-gray-300 dark:ring-zinc-700 hover:ring-green-500 transition-all duration-300 transform hover:shadow-lg"
+      >
+        <img
+          className="w-full h-full object-cover rounded-full"
+          src={user.photoURL || defaultPhoto}
+          alt="User Avatar"
+        />
+        
+        <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white dark:border-gray-800 rounded-full shadow-md"></span>
+      </motion.div>
 
+      
+      <AnimatePresence>
+        {open && (
+          <motion.ul
+            variants={dropdownVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            className="absolute right-0 top-full mt-3 bg-white dark:bg-zinc-800 shadow-2xl rounded-xl w-56 z-50 p-3 space-y-2 border border-gray-200 dark:border-zinc-700 origin-top-right"
+          >
+            <li>
+              <span
+                onClick={() => {
+                  toast.info(`Logged in as ${user.displayName || 'Anonymous'}`);
+                  setOpen(false);
+                }}
+                className="block p-2 text-sm font-semibold text-gray-800 dark:text-gray-100 truncate cursor-pointer rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-700 transition-colors"
+                title={user.email}
+              >
+                {user.displayName || 'Anonymous'}
+              </span>
+            </li>
+            <li>
+              <Link
+                to="/user-profile"
+                className="w-full text-center inline-block bg-green-500 text-white font-semibold py-2 rounded-lg shadow-md hover:bg-green-600 transition-colors text-sm"
+                onClick={() => setOpen(false)}
+              >
+                My Profile
+              </Link>
+            </li>
+            <li>
+              <button
+                onClick={handleLogout}
+                className="w-full bg-red-600 text-white font-semibold py-2 rounded-lg shadow-md hover:bg-red-700 transition-colors text-sm"
+              >
+                Log Out
+              </button>
+            </li>
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </div>
+  );
 };
 
 export default MyProfile;

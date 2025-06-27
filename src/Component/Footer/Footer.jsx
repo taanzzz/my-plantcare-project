@@ -1,11 +1,12 @@
 import { FaFacebookF, FaInstagram, FaLeaf, FaTwitter } from "react-icons/fa";
-import { Link } from "react-router";
-
+import { Link } from "react-router"; 
 
 const Footer = () => {
   return (
-    <footer className="bg-green-50 text-green-800 border-t border-green-200 mt-12">
-      <div className="max-w-screen-xl mx-auto px-3 md:px-6 lg:px-8 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-green-50 text-green-800 border-t border-green-200">
+      
+      <div className="max-w-screen-xl mx-auto px-4 md:px-12 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+        
         
         <div>
           <div className="flex items-center text-green-700 text-xl font-bold mb-2">
@@ -25,6 +26,8 @@ const Footer = () => {
             <li><Link to="/all-plants" className="hover:underline">All Plants</Link></li>
             <li><Link to="/add-plant" className="hover:underline">Add Plant</Link></li>
             <li><Link to="/my-plants" className="hover:underline">My Plants</Link></li>
+            <li><Link to="/about" className="hover:underline">About Us</Link></li>
+            <li><Link to="/contact" className="hover:underline">Contact Us</Link></li>
           </ul>
         </div>
 
@@ -36,8 +39,8 @@ const Footer = () => {
           <p className="text-sm">Dhaka, Bangladesh</p>
         </div>
 
-       
-        <div>
+        
+        <div className="">
           <h3 className="text-green-600 font-semibold mb-2">Follow Us</h3>
           <div className="flex space-x-4 text-xl text-green-600">
             <a href="https://www.facebook.com" className="hover:text-green-800"><FaFacebookF className="text-blue-500 "/></a>
@@ -47,6 +50,7 @@ const Footer = () => {
         </div>
       </div>
 
+      
       <div className="text-center text-sm py-4 border-t border-green-200 bg-green-100">
         © {new Date().getFullYear()} Plant Care Tracker. All rights reserved.
       </div>

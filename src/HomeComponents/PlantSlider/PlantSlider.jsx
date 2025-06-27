@@ -50,12 +50,13 @@ const PlantSlider = () => {
                 className="w-full h-56 md:h-64 lg:h-80 xl:h-96 "
               />
               <div className="p-5 lg:p-6 text-center dark:bg-gray-900">
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-extrabold text-black dark:text-green-300">
-                  {slide.title}
-                </h3>
-                <p className="text-sm md:text-base text-green-800 dark:text-green-200 mt-2 font-bold">
-                  {slide.description}
-                </p>
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-extrabold text-gray-900 dark:text-lime-400">
+  {slide.title}
+</h3>
+<p className="text-sm md:text-base text-green-700 dark:text-lime-300 mt-2 font-semibold">
+  {slide.description}
+</p>
+
               </div>
             </SwiperSlide>
           ))}
